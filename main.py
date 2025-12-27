@@ -4,7 +4,7 @@ from logger import log_state, log_event
 from player import Player
 from asteroidfield import AsteroidField
 from asteroid import Asteroid
-from shots import Shots 
+from shot import Shot 
 import sys
 
 def main():
@@ -24,6 +24,7 @@ def main():
     Player.containers = (updatable, drawable)
     Asteroid.containers = (asteroids, updatable, drawable)
     AsteroidField.containers = updatable
+    Shot.containers = (updatable, drawable, shots)
 
     asteroid_field = AsteroidField()
 
