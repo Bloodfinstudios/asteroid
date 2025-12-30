@@ -8,6 +8,7 @@ class Player(CircleShape):
         super().__init__(x, y, PLAYER_RADIUS)
         self.rotation = 0 
         self.cooldown = 0
+        self.destoryed = 0
     
     def triangle(self):
         forward = pygame.Vector2(0, 1).rotate(self.rotation)
@@ -56,7 +57,11 @@ class Player(CircleShape):
         else:
             self.cooldown = PLAYER_SHOOT_COOLDOWN_SECOUNDS
             shot = Shot(self.position.x, self.position.y)
+            self.destoryed_asteroid()
             unit_vector = pygame.Vector2(0, 1)
             direction = unit_vector.rotate(self.rotation)
             velocity = direction * PLAYER_SHOOT_SPEED
             shot.velocity = velocity 
+
+    def destoryed_asteroid(self):
+        self.destoryed += 1

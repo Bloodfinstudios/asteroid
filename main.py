@@ -49,6 +49,7 @@ def main():
             if asteroid.collides_with(player):
                 log_event("player_hit")
                 print("Game over!")
+                print(f"Number of asteroids destoryed: {player.destoryed}")
                 sys.exit()
 
         for asteroid in asteroids:
